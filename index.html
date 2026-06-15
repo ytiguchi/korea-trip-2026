@@ -15,21 +15,32 @@
   body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
     color:var(--ink);background:var(--cream);line-height:1.7;}
   .wrap{max-width:480px;margin:0 auto;background:var(--cream);min-height:100vh;}
+  /* team filter */
+  body.view-zen .f-kou, body.view-zen .f-allonly{display:none !important;}
+  body.view-kou .f-zen, body.view-kou .f-allonly{display:none !important;}
   /* hero */
-  .hero{position:relative;padding:54px 22px 30px;text-align:center;color:#fff;
+  .hero{position:relative;padding:46px 22px 26px;text-align:center;color:#fff;
     background:linear-gradient(135deg,#ff9a7a 0%,#ff6f61 55%,#ff5e7e 100%);overflow:hidden;}
   .hero::after{content:"";position:absolute;left:-40px;bottom:-60px;width:180px;height:180px;
     background:rgba(255,255,255,.12);border-radius:50%;}
   .hero::before{content:"";position:absolute;right:-30px;top:-40px;width:120px;height:120px;
     background:rgba(255,255,255,.1);border-radius:50%;}
   .hero .eyebrow{font-size:12px;letter-spacing:.28em;opacity:.92;margin-bottom:10px;}
-  .hero h1{font-size:30px;margin:0 0 6px;font-weight:800;letter-spacing:.02em;}
+  .hero h1{font-size:29px;margin:0 0 6px;font-weight:800;letter-spacing:.02em;}
   .hero .sub{font-size:14px;opacity:.95;}
-  .hero .dates{display:inline-block;margin-top:16px;padding:8px 18px;border-radius:999px;
+  .hero .dates{display:inline-block;margin-top:14px;padding:8px 18px;border-radius:999px;
     background:rgba(255,255,255,.22);backdrop-filter:blur(4px);font-weight:700;font-size:15px;}
-  .flag{font-size:30px;display:block;margin-bottom:6px;}
+  .flag{font-size:28px;display:block;margin-bottom:6px;}
+  /* team switcher */
+  .teamsw{position:sticky;top:0;z-index:40;display:flex;gap:7px;justify-content:center;padding:9px 14px;
+    background:rgba(255,247,242,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .teamsw button{flex:1;max-width:150px;font-size:13px;font-weight:800;border:1.5px solid var(--line);
+    background:#fff;color:var(--coral);border-radius:999px;padding:9px 4px;cursor:pointer;font-family:inherit;}
+  .teamsw button.active{background:var(--coral);color:#fff;border-color:var(--coral);box-shadow:var(--shadow);}
+  .teamnow{text-align:center;font-size:12.5px;color:var(--coral);background:var(--accent);padding:7px 12px;}
+  .teamnow b{font-weight:800;}
   /* nav chips */
-  nav.chips{position:sticky;top:0;z-index:30;display:flex;gap:8px;overflow-x:auto;padding:12px 16px;
+  nav.chips{position:sticky;top:51px;z-index:30;display:flex;gap:8px;overflow-x:auto;padding:11px 16px;
     background:rgba(255,247,242,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
     scrollbar-width:none;}
   nav.chips::-webkit-scrollbar{display:none;}
@@ -37,7 +48,7 @@
     background:#fff;border:1px solid var(--line);padding:7px 13px;border-radius:999px;white-space:nowrap;}
   nav.chips a:active{background:var(--accent);}
   /* sections */
-  section{padding:26px 18px 6px;}
+  section{padding:24px 18px 4px;}
   .sec-h{display:flex;align-items:center;gap:10px;margin:0 0 14px;}
   .sec-h .ico{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border-radius:11px;
     background:var(--accent);font-size:18px;}
@@ -57,7 +68,7 @@
   .grp .gcount{font-size:13px;opacity:.95;background:rgba(255,255,255,.22);padding:2px 9px;border-radius:999px;}
   .grp .gdate{font-size:14px;font-weight:700;opacity:.97;}
   .grp .gnote{font-size:12px;opacity:.9;margin-top:3px;}
-  /* flight table */
+  /* flight / hotel rows */
   .flt{display:flex;align-items:center;gap:10px;padding:12px 4px;border-bottom:1px dashed var(--line);}
   .flt:last-child{border-bottom:none;}
   .flt .leg{flex:1;}
@@ -68,10 +79,10 @@
   .flt .no{font-size:11px;color:var(--muted);}
   .tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:6px;}
   .tag.ok{background:#e6f7ee;color:var(--green);}
-  .tag.chk{background:#fff0e8;color:var(--coral);}
   .note{font-size:12.5px;color:var(--muted);margin:8px 2px 0;}
   /* member chips */
   .mhead{font-weight:800;font-size:14px;margin:14px 2px 8px;display:flex;align-items:center;gap:8px;}
+  .grpblock:first-child .mhead{margin-top:2px;}
   .dot{width:11px;height:11px;border-radius:50%;display:inline-block;}
   .mlist{display:flex;flex-wrap:wrap;gap:7px;}
   .m{font-size:13px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 11px;}
@@ -103,22 +114,29 @@
   .editmark{font-size:11px;color:var(--peach);font-weight:700;}
 </style>
 </head>
-<body>
+<body class="view-all">
 <div class="wrap">
 
   <header class="hero">
     <span class="flag">🇰🇷</span>
     <div class="eyebrow">SMBRAND COMPANY TRIP</div>
     <h1>韓国社員旅行</h1>
-    <div class="sub">ソウル / Seoul</div>
-    <div class="dates">2026.7.21 <span style="opacity:.7">—</span> 7.24</div>
+    <div class="sub">ソウル・仁川 / Seoul · Incheon</div>
+    <div class="dates" id="heroDates">2026.7.21 — 7.24</div>
   </header>
+
+  <div class="teamsw">
+    <button data-v="zen">前半チーム</button>
+    <button data-v="kou">後半チーム</button>
+    <button data-v="all">全体</button>
+  </div>
+  <div class="teamnow" id="teamnow"></div>
 
   <nav class="chips">
     <a href="#overview">🗺 概要</a>
     <a href="#flight">✈️ フライト</a>
-    <a href="#member">👭 メンバー</a>
     <a href="#hotel">🏨 ホテル</a>
+    <a href="#member">👭 メンバー</a>
     <a href="#schedule">📅 日程</a>
     <a href="#info">🇰🇷 現地情報</a>
     <a href="#pack">🧳 持ち物</a>
@@ -129,18 +147,20 @@
   <!-- 概要 -->
   <section id="overview">
     <div class="sec-h"><span class="ico">🗺</span><h2>旅の概要</h2></div>
-    <div class="grp zen">
+    <div class="grp zen f-zen">
       <div class="gtop"><span class="gname">前半・酒組（先発）</span><span class="gcount">11名</span></div>
       <div class="gdate">7/21(火) 〜 7/23(木) ・ 2泊3日</div>
+      <div class="gnote">ソウル → 仁川（パラダイスシティ）</div>
     </div>
-    <div class="grp toshi">
+    <div class="grp toshi f-allonly">
       <div class="gtop"><span class="gname">通し</span><span class="gcount">2名</span></div>
       <div class="gdate">7/21(火) 〜 7/24(金) ・ 3泊4日</div>
       <div class="gnote">赤阪・井口（全行程参加）</div>
     </div>
-    <div class="grp kou">
+    <div class="grp kou f-kou">
       <div class="gtop"><span class="gname">後半・茶組（後発）</span><span class="gcount">9名</span></div>
       <div class="gdate">7/22(水) 〜 7/24(金) ・ 2泊3日</div>
+      <div class="gnote">仁川（パラダイスシティ） → ソウル</div>
     </div>
     <p class="note">※ 区分は各自の航空券（eチケット）の日付に準拠。班分け表とズレていた方（櫻木さん→前半／矢代さん・高澤さん→後半）はチケットを正としています。菅原さん（参加未定）・CESAさんは別途調整。</p>
   </section>
@@ -165,61 +185,22 @@
 
     <div class="card">
       <div style="font-weight:800;margin-bottom:8px;">グループ別 発着</div>
-      <div class="flt"><div class="leg"><b>前半</b> <span class="no">酒組</span></div>
+      <div class="flt f-zen"><div class="leg"><b>前半</b> <span class="no">酒組</span></div>
         <div class="leg" style="text-align:right">往 7/21(火) OZ107<span class="tag ok">確認済</span><br><span class="no">復 7/23(木) OZ108</span><span class="tag ok">確認済</span></div></div>
-      <div class="flt"><div class="leg"><b>通し</b></div>
+      <div class="flt f-allonly"><div class="leg"><b>通し</b></div>
         <div class="leg" style="text-align:right">往 7/21(火) OZ107<span class="tag ok">確認済</span><br><span class="no">復 7/24(金) OZ108</span><span class="tag ok">確認済</span></div></div>
-      <div class="flt"><div class="leg"><b>後半</b> <span class="no">茶組</span></div>
+      <div class="flt f-kou"><div class="leg"><b>後半</b> <span class="no">茶組</span></div>
         <div class="leg" style="text-align:right">往 7/22(水) OZ107<span class="tag ok">確認済</span><br><span class="no">復 7/24(金) OZ108</span><span class="tag ok">確認済</span></div></div>
       <p class="note">全便アシアナ航空のデイリー便で確定（往路 OZ107 / 復路 OZ108）。座席・予約番号は各自のeチケットをご確認ください。</p>
     </div>
     <div class="warn">⏰ 集合時間・チェックインカウンター・座席は確定後に追記します。国際線は出発の<b>2時間前</b>集合が目安。</div>
   </section>
 
-  <!-- メンバー -->
-  <section id="member">
-    <div class="sec-h"><span class="ico">👭</span><h2>メンバー・班分け</h2></div>
-    <div class="card">
-      <div class="mhead"><span class="dot" style="background:var(--coral)"></span>前半・酒組（7/21–23）<span class="no" style="margin-left:auto">11名</span></div>
-      <div class="mlist">
-        <span class="m">奥村 瞬<span class="r">Dr</span></span>
-        <span class="m">南波 佑有子<span class="r">Ns</span></span>
-        <span class="m">吉岡 ももか<span class="r">Ns</span></span>
-        <span class="m">加茂 恵美里<span class="r">Ns</span></span>
-        <span class="m">柳澤 真穂<span class="r">Ns</span></span>
-        <span class="m">飯嶋 佐友里<span class="r">Co</span></span>
-        <span class="m">多田 宏薫<span class="r">Co</span></span>
-        <span class="m">小森 萌名<span class="r">Co</span></span>
-        <span class="m">大庭 愛蘭<span class="r">Co</span></span>
-        <span class="m">櫻木 俊太郎<span class="r">Corp</span></span>
-        <span class="m">平野 沙也加</span>
-      </div>
-      <div class="mhead" style="margin-top:18px"><span class="dot" style="background:#7a6cff"></span>通し（7/21–24）<span class="no" style="margin-left:auto">2名</span></div>
-      <div class="mlist">
-        <span class="m">赤阪 早紀<span class="r">Corp</span></span>
-        <span class="m">井口 雄太<span class="r">Corp</span></span>
-      </div>
-      <div class="mhead" style="margin-top:18px"><span class="dot" style="background:#36b37e"></span>後半・茶組（7/22–24）<span class="no" style="margin-left:auto">9名</span></div>
-      <div class="mlist">
-        <span class="m">吉松 凜<span class="r">Dr</span></span>
-        <span class="m">吉松 英漣<span class="r">同行</span></span>
-        <span class="m">高澤 真美<span class="r">Ns</span></span>
-        <span class="m">下玉利 朱莉<span class="r">Ns</span></span>
-        <span class="m">吉田 里穂子<span class="r">Ns</span></span>
-        <span class="m">井上 琴美<span class="r">Co</span></span>
-        <span class="m">深水 まりん<span class="r">Co</span></span>
-        <span class="m">栗原 沙知<span class="r">Co</span></span>
-        <span class="m">矢代 梨々香<span class="r">Corp</span></span>
-      </div>
-      <p class="note">Dr=ドクター / Ns=ナース / Co=カウンセラー / Corp=コーポレート。菅原 望加さん（参加未定）・CESAさん（後から参加）は確定後に追記。</p>
-    </div>
-  </section>
-
   <!-- ホテル -->
   <section id="hotel">
     <div class="sec-h"><span class="ico">🏨</span><h2>ホテル（泊別）</h2></div>
     <div class="card">
-      <div class="flt">
+      <div class="flt f-zen">
         <div class="leg">
           <div class="no">7/21(火) 泊 ・ 前半・通し</div>
           <div class="ap">ソウル ロイヤルホテル</div>
@@ -235,7 +216,7 @@
         </div>
         <a href="https://www.google.com/maps/search/Paradise+City+Incheon" target="_blank" rel="noopener" class="tag ok" style="text-decoration:none;align-self:center">🗺 地図</a>
       </div>
-      <div class="flt">
+      <div class="flt f-kou">
         <div class="leg">
           <div class="no">7/23(木) 泊 ・ 後半・通し</div>
           <div class="ap">ソウル ロイヤルホテル</div>
@@ -248,12 +229,57 @@
     <div class="warn">📍 想定の流れ：7/21 ソウル → <b>7/22 仁川パラダイスシティ（全員集合）</b> → 7/23 ソウル。「1と3」は 7/21泊・7/23泊 と解釈しています。違えば教えてください。</div>
   </section>
 
+  <!-- メンバー -->
+  <section id="member">
+    <div class="sec-h"><span class="ico">👭</span><h2>メンバー・班分け</h2></div>
+    <div class="card">
+      <div class="grpblock f-zen">
+        <div class="mhead"><span class="dot" style="background:var(--coral)"></span>前半・酒組（7/21–23）<span class="no" style="margin-left:auto">11名</span></div>
+        <div class="mlist">
+          <span class="m">奥村 瞬<span class="r">Dr</span></span>
+          <span class="m">南波 佑有子<span class="r">Ns</span></span>
+          <span class="m">吉岡 ももか<span class="r">Ns</span></span>
+          <span class="m">加茂 恵美里<span class="r">Ns</span></span>
+          <span class="m">柳澤 真穂<span class="r">Ns</span></span>
+          <span class="m">飯嶋 佐友里<span class="r">Co</span></span>
+          <span class="m">多田 宏薫<span class="r">Co</span></span>
+          <span class="m">小森 萌名<span class="r">Co</span></span>
+          <span class="m">大庭 愛蘭<span class="r">Co</span></span>
+          <span class="m">櫻木 俊太郎<span class="r">Corp</span></span>
+          <span class="m">平野 沙也加</span>
+        </div>
+      </div>
+      <div class="grpblock f-allonly">
+        <div class="mhead" style="margin-top:18px"><span class="dot" style="background:#7a6cff"></span>通し（7/21–24）<span class="no" style="margin-left:auto">2名</span></div>
+        <div class="mlist">
+          <span class="m">赤阪 早紀<span class="r">Corp</span></span>
+          <span class="m">井口 雄太<span class="r">Corp</span></span>
+        </div>
+      </div>
+      <div class="grpblock f-kou">
+        <div class="mhead" style="margin-top:18px"><span class="dot" style="background:#36b37e"></span>後半・茶組（7/22–24）<span class="no" style="margin-left:auto">9名</span></div>
+        <div class="mlist">
+          <span class="m">吉松 凜<span class="r">Dr</span></span>
+          <span class="m">吉松 英漣<span class="r">同行</span></span>
+          <span class="m">高澤 真美<span class="r">Ns</span></span>
+          <span class="m">下玉利 朱莉<span class="r">Ns</span></span>
+          <span class="m">吉田 里穂子<span class="r">Ns</span></span>
+          <span class="m">井上 琴美<span class="r">Co</span></span>
+          <span class="m">深水 まりん<span class="r">Co</span></span>
+          <span class="m">栗原 沙知<span class="r">Co</span></span>
+          <span class="m">矢代 梨々香<span class="r">Corp</span></span>
+        </div>
+      </div>
+      <p class="note">Dr=ドクター / Ns=ナース / Co=カウンセラー / Corp=コーポレート。菅原 望加さん（参加未定）・CESAさん（後から参加）は確定後に追記。</p>
+    </div>
+  </section>
+
   <!-- 日程 -->
   <section id="schedule">
     <div class="sec-h"><span class="ico">📅</span><h2>現地スケジュール</h2></div>
     <div class="card tbd">
       <span class="pill">記入待ち</span>
-      <div>「詳細な時間割あり」とのことなので、その<b>テキストを貼ってください</b>（Day1/Day2…の時間と行程）。<br>タイムライン形式で組み込みます。ファイル添付・転送は不要、本文に貼るだけでOKです。</div>
+      <div>詳細な時間割の<b>テキストを貼ってください</b>（Day1/Day2…の時間と行程）。<br>前半・後半それぞれのタイムラインに分けて組み込みます。ファイル添付・転送は不要、本文に貼るだけでOKです。</div>
     </div>
   </section>
 
@@ -318,25 +344,46 @@
 
   <footer>
     韓国社員旅行 2026 旅のしおり ・ 社内限定<br>
-    <span class="editmark">DRAFT</span> — ホテル・詳細日程・集合時間は順次更新します
+    <span class="editmark">DRAFT</span> — 詳細日程・集合時間・ホテル詳細は順次更新します
   </footer>
 
 </div>
 <script>
-  // smooth scroll for nav chips (account for sticky nav height)
+  // team view switch
+  var INFO={
+    zen:{t:'前半チーム表示中',d:'7/21(火) → 7/23(木) ・ 2泊3日',h:'ソウル → 仁川（パラダイスシティ）',hero:'2026.7.21（火）— 7.23（木）'},
+    kou:{t:'後半チーム表示中',d:'7/22(水) → 7/24(金) ・ 2泊3日',h:'仁川（パラダイスシティ）→ ソウル',hero:'2026.7.22（水）— 7.24（金）'},
+    all:{t:'全体表示',d:'前半・通し・後半すべて',h:'7/21（火）→ 7/24（金）',hero:'2026.7.21 — 7.24'}
+  };
+  function setView(v){
+    if(!INFO[v])v='all';
+    document.body.className='view-'+v;
+    try{localStorage.setItem('ktrip_view',v);}catch(e){}
+    document.querySelectorAll('.teamsw button').forEach(function(b){b.classList.toggle('active',b.dataset.v===v);});
+    var i=INFO[v];
+    document.getElementById('teamnow').innerHTML='<b>'+i.t+'</b> ・ '+i.d+' ・ '+i.h;
+    document.getElementById('heroDates').textContent=i.hero;
+  }
+  document.querySelectorAll('.teamsw button').forEach(function(b){
+    b.addEventListener('click',function(){setView(b.dataset.v);});
+  });
+  var saved='all';try{saved=localStorage.getItem('ktrip_view')||'all';}catch(e){}
+  setView(saved);
+
+  // smooth scroll for nav chips (account for sticky switcher + chips)
   document.querySelectorAll('nav.chips a').forEach(function(a){
     a.addEventListener('click',function(e){
       e.preventDefault();
       var el=document.querySelector(this.getAttribute('href'));
-      if(el){var y=el.getBoundingClientRect().top+window.scrollY-58;window.scrollTo({top:y,behavior:'smooth'});}
+      if(el){var y=el.getBoundingClientRect().top+window.scrollY-104;window.scrollTo({top:y,behavior:'smooth'});}
     });
   });
   // persist checklist
   document.querySelectorAll('#packlist input').forEach(function(cb){
     var k='ktrip_'+cb.id;
-    if(localStorage.getItem(k)==='1'){cb.checked=true;cb.closest('.chk-item').classList.add('done');}
+    try{if(localStorage.getItem(k)==='1'){cb.checked=true;cb.closest('.chk-item').classList.add('done');}}catch(e){}
     cb.addEventListener('change',function(){
-      localStorage.setItem(k,cb.checked?'1':'0');
+      try{localStorage.setItem(k,cb.checked?'1':'0');}catch(e){}
       cb.closest('.chk-item').classList.toggle('done',cb.checked);
     });
   });
