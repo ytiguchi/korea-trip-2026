@@ -403,7 +403,7 @@
       <div class="ic"><div class="t">言語</div><div class="v">韓国語</div><div class="s">観光地は日英も通じやすい</div></div>
       <div class="ic"><div class="t">チップ</div><div class="v">基本不要</div><div class="s">サービス料込みが一般的</div></div>
     </div>
-    <p class="note">📶 通信：eSIM / ポケットWi-Fi / ローミングのいずれか事前準備を。冷房が強いので屋内用の羽織りものがあると◎</p>
+    <p class="note">📶 通信：eSIM が手軽です（ローミングでも可）。冷房が強いので屋内用の羽織りものがあると◎</p>
     <div class="warn">💴 <b>ウォンは少なめで大丈夫</b>。お店もタクシーも大体カードが使えます。不安なら空港などで少額だけ両替を（両替レートはカジノが良いらしいです）。</div>
   </section>
 
@@ -425,20 +425,23 @@
   <section id="pack">
     <div class="sec-h"><span class="ico">🧳</span><h2>持ち物チェックリスト</h2></div>
     <div class="card" id="packlist">
-      <div class="chk-item"><input type="checkbox" id="p1"><label for="p1">パスポート（残存6ヶ月以上推奨）</label></div>
+      <div class="chk-item"><input type="checkbox" id="p1"><label for="p1">パスポート（残存6ヶ月以上）<span style="color:var(--coral);font-weight:800;font-size:11px;margin-left:6px;">絶対必須</span></label></div>
       <div class="chk-item"><input type="checkbox" id="p2"><label for="p2">航空券（eチケット）控え</label></div>
-      <div class="chk-item"><input type="checkbox" id="p3"><label for="p3">現金（ウォン）＋クレジットカード</label></div>
-      <div class="chk-item"><input type="checkbox" id="p4"><label for="p4">スマホ・モバイルバッテリー</label></div>
-      <div class="chk-item"><input type="checkbox" id="p5"><label for="p5">変換プラグ（SEタイプ）・充電器</label></div>
-      <div class="chk-item"><input type="checkbox" id="p6"><label for="p6">eSIM / Wi-Fiルーター</label></div>
-      <div class="chk-item"><input type="checkbox" id="p7"><label for="p7">折りたたみ傘・羽織りもの</label></div>
+      <div class="chk-item"><input type="checkbox" id="p3"><label for="p3">現金（ウォン少なめ）＋クレジットカード</label></div>
+      <div class="chk-item"><input type="checkbox" id="p4"><label for="p4">スマホ・充電器・モバイルバッテリー</label></div>
+      <div class="chk-item"><input type="checkbox" id="p5"><label for="p5">eSIM（推奨）</label></div>
       <div class="chk-item"><input type="checkbox" id="p8"><label for="p8">常備薬・絆創膏・酔い止め</label></div>
       <div class="chk-item"><input type="checkbox" id="p9"><label for="p9">日焼け止め・スキンケア</label></div>
-      <div class="chk-item"><input type="checkbox" id="p10"><label for="p10">エコバッグ（買い物用）</label></div>
-      <div class="chk-item"><input type="checkbox" id="p11"><label for="p11">海外旅行保険の控え</label></div>
       <div class="chk-item"><input type="checkbox" id="p12"><label for="p12">水着（パラダイスのCimerプール用）</label></div>
+      <div class="chk-item"><input type="checkbox" id="p7"><label for="p7">折りたたみ傘・羽織りもの</label></div>
+      <div class="chk-item"><input type="checkbox" id="p11"><label for="p11">海外旅行保険の控え</label></div>
     </div>
-    <p class="note">チェックは端末に保存されます（同じスマホで開けば残ります）。</p>
+    <div style="font-weight:800;font-size:14px;margin:4px 2px 8px;">あると安心（心配な人用）</div>
+    <div class="card">
+      <div class="chk-item"><input type="checkbox" id="p5b"><label for="p5b">変換プラグ（SEタイプ）</label></div>
+      <div class="chk-item"><input type="checkbox" id="p10"><label for="p10">エコバッグ（買い物用）</label></div>
+    </div>
+    <p class="note">チェックは端末に保存されます（同じスマホで開けば残ります）。充電器が100-240V対応なら基本そのまま使え、心配な方だけ変換プラグを。</p>
   </section>
 
   <!-- 入国 -->
@@ -503,7 +506,7 @@
     });
   });
   // persist checklist
-  document.querySelectorAll('#packlist input').forEach(function(cb){
+  document.querySelectorAll('.chk-item input').forEach(function(cb){
     var k='ktrip_'+cb.id;
     try{if(localStorage.getItem(k)==='1'){cb.checked=true;cb.closest('.chk-item').classList.add('done');}}catch(e){}
     cb.addEventListener('change',function(){
