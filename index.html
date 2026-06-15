@@ -16,8 +16,8 @@
     color:var(--ink);background:var(--cream);line-height:1.7;}
   .wrap{max-width:480px;margin:0 auto;background:var(--cream);min-height:100vh;}
   /* team filter */
-  body.view-zen .f-kou, body.view-zen .f-allonly{display:none !important;}
-  body.view-kou .f-zen, body.view-kou .f-allonly{display:none !important;}
+  body.view-zen .f-kou{display:none !important;}
+  body.view-kou .f-zen{display:none !important;}
   /* hero */
   .hero{position:relative;padding:46px 22px 26px;text-align:center;color:#fff;
     background:linear-gradient(135deg,#ff9a7a 0%,#ff6f61 55%,#ff5e7e 100%);overflow:hidden;}
@@ -114,7 +114,7 @@
   .editmark{font-size:11px;color:var(--peach);font-weight:700;}
 </style>
 </head>
-<body class="view-all">
+<body class="view-zen">
 <div class="wrap">
 
   <header class="hero">
@@ -128,7 +128,6 @@
   <div class="teamsw">
     <button data-v="zen">前半チーム</button>
     <button data-v="kou">後半チーム</button>
-    <button data-v="all">全体</button>
   </div>
   <div class="teamnow" id="teamnow"></div>
 
@@ -151,11 +150,6 @@
       <div class="gtop"><span class="gname">前半・酒組（先発）</span><span class="gcount">11名</span></div>
       <div class="gdate">7/21(火) 〜 7/23(木) ・ 2泊3日</div>
       <div class="gnote">ソウル → 仁川（パラダイスシティ）</div>
-    </div>
-    <div class="grp toshi f-allonly">
-      <div class="gtop"><span class="gname">通し</span><span class="gcount">2名</span></div>
-      <div class="gdate">7/21(火) 〜 7/24(金) ・ 3泊4日</div>
-      <div class="gnote">赤阪・井口（全行程参加）</div>
     </div>
     <div class="grp kou f-kou">
       <div class="gtop"><span class="gname">後半・茶組（後発）</span><span class="gcount">9名</span></div>
@@ -187,8 +181,6 @@
       <div style="font-weight:800;margin-bottom:8px;">グループ別 発着</div>
       <div class="flt f-zen"><div class="leg"><b>前半</b> <span class="no">酒組</span></div>
         <div class="leg" style="text-align:right">往 7/21(火) OZ107<span class="tag ok">確認済</span><br><span class="no">復 7/23(木) OZ108</span><span class="tag ok">確認済</span></div></div>
-      <div class="flt f-allonly"><div class="leg"><b>通し</b></div>
-        <div class="leg" style="text-align:right">往 7/21(火) OZ107<span class="tag ok">確認済</span><br><span class="no">復 7/24(金) OZ108</span><span class="tag ok">確認済</span></div></div>
       <div class="flt f-kou"><div class="leg"><b>後半</b> <span class="no">茶組</span></div>
         <div class="leg" style="text-align:right">往 7/22(水) OZ107<span class="tag ok">確認済</span><br><span class="no">復 7/24(金) OZ108</span><span class="tag ok">確認済</span></div></div>
       <p class="note">全便アシアナ航空のデイリー便で確定（往路 OZ107 / 復路 OZ108）。座席・予約番号は各自のeチケットをご確認ください。</p>
@@ -249,13 +241,6 @@
           <span class="m">平野 沙也加</span>
         </div>
       </div>
-      <div class="grpblock f-allonly">
-        <div class="mhead" style="margin-top:18px"><span class="dot" style="background:#7a6cff"></span>通し（7/21–24）<span class="no" style="margin-left:auto">2名</span></div>
-        <div class="mlist">
-          <span class="m">赤阪 早紀<span class="r">Corp</span></span>
-          <span class="m">井口 雄太<span class="r">Corp</span></span>
-        </div>
-      </div>
       <div class="grpblock f-kou">
         <div class="mhead" style="margin-top:18px"><span class="dot" style="background:#36b37e"></span>後半・茶組（7/22–24）<span class="no" style="margin-left:auto">9名</span></div>
         <div class="mlist">
@@ -277,9 +262,13 @@
   <!-- 日程 -->
   <section id="schedule">
     <div class="sec-h"><span class="ico">📅</span><h2>現地スケジュール</h2></div>
-    <div class="card tbd">
-      <span class="pill">記入待ち</span>
-      <div>詳細な時間割の<b>テキストを貼ってください</b>（Day1/Day2…の時間と行程）。<br>前半・後半それぞれのタイムラインに分けて組み込みます。ファイル添付・転送は不要、本文に貼るだけでOKです。</div>
+    <div class="card tbd f-zen">
+      <span class="pill">前半チーム ・ 記入待ち</span>
+      <div>前半（7/21–23）の時間割テキストを貼ってください。Day1〜Day3のタイムラインに組みます。</div>
+    </div>
+    <div class="card tbd f-kou">
+      <span class="pill">後半チーム ・ 記入待ち</span>
+      <div>後半（7/22–24）の時間割テキストを貼ってください。Day1〜Day3のタイムラインに組みます。</div>
     </div>
   </section>
 
@@ -351,23 +340,22 @@
 <script>
   // team view switch
   var INFO={
-    zen:{t:'前半チーム表示中',d:'7/21(火) → 7/23(木) ・ 2泊3日',h:'ソウル → 仁川（パラダイスシティ）',hero:'2026.7.21（火）— 7.23（木）'},
-    kou:{t:'後半チーム表示中',d:'7/22(水) → 7/24(金) ・ 2泊3日',h:'仁川（パラダイスシティ）→ ソウル',hero:'2026.7.22（水）— 7.24（金）'},
-    all:{t:'全体表示',d:'前半・通し・後半すべて',h:'7/21（火）→ 7/24（金）',hero:'2026.7.21 — 7.24'}
+    zen:{t:'前半チーム',d:'7/21(火) → 7/23(木) ・ 2泊3日',h:'ソウル → 仁川（パラダイスシティ）',hero:'2026.7.21（火）— 7.23（木）'},
+    kou:{t:'後半チーム',d:'7/22(水) → 7/24(金) ・ 2泊3日',h:'仁川（パラダイスシティ）→ ソウル',hero:'2026.7.22（水）— 7.24（金）'}
   };
   function setView(v){
-    if(!INFO[v])v='all';
+    if(!INFO[v])v='zen';
     document.body.className='view-'+v;
     try{localStorage.setItem('ktrip_view',v);}catch(e){}
     document.querySelectorAll('.teamsw button').forEach(function(b){b.classList.toggle('active',b.dataset.v===v);});
     var i=INFO[v];
-    document.getElementById('teamnow').innerHTML='<b>'+i.t+'</b> ・ '+i.d+' ・ '+i.h;
+    document.getElementById('teamnow').innerHTML='<b>'+i.t+' 表示中</b> ・ '+i.d+' ・ '+i.h;
     document.getElementById('heroDates').textContent=i.hero;
   }
   document.querySelectorAll('.teamsw button').forEach(function(b){
     b.addEventListener('click',function(){setView(b.dataset.v);});
   });
-  var saved='all';try{saved=localStorage.getItem('ktrip_view')||'all';}catch(e){}
+  var saved='zen';try{var s=localStorage.getItem('ktrip_view');if(s&&INFO[s])saved=s;}catch(e){}
   setView(saved);
 
   // smooth scroll for nav chips (account for sticky switcher + chips)
