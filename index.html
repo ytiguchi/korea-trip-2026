@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>韓国社員旅行 2026 旅のしおり</title>
+<style>
+  :root{
+    --peach:#ff8a73; --coral:#ff6f61; --cream:#fff7f2; --ink:#3a2f2c;
+    --soft:#fff; --line:#ffe1d6; --muted:#9a8a84; --accent:#ffd1c2;
+    --green:#3bb273; --blue:#4a90d9; --shadow:0 6px 22px rgba(255,111,97,.13);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    color:var(--ink);background:var(--cream);line-height:1.7;}
+  .wrap{max-width:480px;margin:0 auto;background:var(--cream);min-height:100vh;}
+  /* hero */
+  .hero{position:relative;padding:54px 22px 30px;text-align:center;color:#fff;
+    background:linear-gradient(135deg,#ff9a7a 0%,#ff6f61 55%,#ff5e7e 100%);overflow:hidden;}
+  .hero::after{content:"";position:absolute;left:-40px;bottom:-60px;width:180px;height:180px;
+    background:rgba(255,255,255,.12);border-radius:50%;}
+  .hero::before{content:"";position:absolute;right:-30px;top:-40px;width:120px;height:120px;
+    background:rgba(255,255,255,.1);border-radius:50%;}
+  .hero .eyebrow{font-size:12px;letter-spacing:.28em;opacity:.92;margin-bottom:10px;}
+  .hero h1{font-size:30px;margin:0 0 6px;font-weight:800;letter-spacing:.02em;}
+  .hero .sub{font-size:14px;opacity:.95;}
+  .hero .dates{display:inline-block;margin-top:16px;padding:8px 18px;border-radius:999px;
+    background:rgba(255,255,255,.22);backdrop-filter:blur(4px);font-weight:700;font-size:15px;}
+  .flag{font-size:30px;display:block;margin-bottom:6px;}
+  /* nav chips */
+  nav.chips{position:sticky;top:0;z-index:30;display:flex;gap:8px;overflow-x:auto;padding:12px 16px;
+    background:rgba(255,247,242,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+    scrollbar-width:none;}
+  nav.chips::-webkit-scrollbar{display:none;}
+  nav.chips a{flex:0 0 auto;font-size:13px;font-weight:700;text-decoration:none;color:var(--coral);
+    background:#fff;border:1px solid var(--line);padding:7px 13px;border-radius:999px;white-space:nowrap;}
+  nav.chips a:active{background:var(--accent);}
+  /* sections */
+  section{padding:26px 18px 6px;}
+  .sec-h{display:flex;align-items:center;gap:10px;margin:0 0 14px;}
+  .sec-h .ico{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border-radius:11px;
+    background:var(--accent);font-size:18px;}
+  .sec-h h2{font-size:19px;margin:0;font-weight:800;}
+  .card{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:16px;
+    box-shadow:var(--shadow);margin-bottom:14px;}
+  .card.tbd{border-style:dashed;border-color:var(--peach);background:#fff;text-align:center;color:var(--muted);}
+  .tbd .pill{display:inline-block;background:var(--accent);color:var(--coral);font-weight:700;font-size:12px;
+    padding:3px 10px;border-radius:999px;margin-bottom:8px;}
+  /* group cards */
+  .grp{border-radius:16px;padding:15px 16px;margin-bottom:13px;color:#fff;box-shadow:var(--shadow);}
+  .grp.zen{background:linear-gradient(120deg,#ff8a73,#ff6f61);}
+  .grp.toshi{background:linear-gradient(120deg,#7a6cff,#9a7bff);}
+  .grp.kou{background:linear-gradient(120deg,#3bb6b0,#36b37e);}
+  .grp .gtop{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;}
+  .grp .gname{font-weight:800;font-size:17px;}
+  .grp .gcount{font-size:13px;opacity:.95;background:rgba(255,255,255,.22);padding:2px 9px;border-radius:999px;}
+  .grp .gdate{font-size:14px;font-weight:700;opacity:.97;}
+  .grp .gnote{font-size:12px;opacity:.9;margin-top:3px;}
+  /* flight table */
+  .flt{display:flex;align-items:center;gap:10px;padding:12px 4px;border-bottom:1px dashed var(--line);}
+  .flt:last-child{border-bottom:none;}
+  .flt .leg{flex:1;}
+  .flt .ap{font-weight:800;font-size:16px;}
+  .flt .tm{font-size:20px;font-weight:800;color:var(--coral);}
+  .flt .arrow{color:var(--muted);font-size:13px;text-align:center;flex:0 0 64px;}
+  .flt .arrow b{display:block;color:var(--ink);font-size:12px;}
+  .flt .no{font-size:11px;color:var(--muted);}
+  .tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:6px;}
+  .tag.ok{background:#e6f7ee;color:var(--green);}
+  .tag.chk{background:#fff0e8;color:var(--coral);}
+  .note{font-size:12.5px;color:var(--muted);margin:8px 2px 0;}
+  /* member chips */
+  .mhead{font-weight:800;font-size:14px;margin:14px 2px 8px;display:flex;align-items:center;gap:8px;}
+  .dot{width:11px;height:11px;border-radius:50%;display:inline-block;}
+  .mlist{display:flex;flex-wrap:wrap;gap:7px;}
+  .m{font-size:13px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 11px;}
+  .m .r{font-size:10px;color:var(--muted);margin-left:4px;}
+  /* info grid */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .ic{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px;}
+  .ic .t{font-size:12px;color:var(--muted);}
+  .ic .v{font-size:15px;font-weight:800;margin-top:2px;}
+  .ic .s{font-size:11.5px;color:var(--muted);margin-top:3px;}
+  /* checklist */
+  .chk-item{display:flex;align-items:center;gap:11px;padding:9px 2px;border-bottom:1px solid #fbeae2;}
+  .chk-item:last-child{border:none;}
+  .chk-item input{width:21px;height:21px;accent-color:var(--coral);flex:0 0 21px;}
+  .chk-item label{font-size:14px;}
+  .chk-item.done label{text-decoration:line-through;color:var(--muted);}
+  /* contacts */
+  .ct{display:flex;justify-content:space-between;align-items:center;padding:11px 2px;border-bottom:1px solid #fbeae2;}
+  .ct:last-child{border:none;}
+  .ct .l .n{font-weight:700;font-size:14px;}
+  .ct .l .d{font-size:11.5px;color:var(--muted);}
+  .ct a{font-weight:800;color:var(--coral);text-decoration:none;font-size:15px;
+    background:var(--accent);padding:6px 13px;border-radius:999px;}
+  ul.tidy{margin:6px 0 0;padding-left:20px;}
+  ul.tidy li{margin-bottom:6px;font-size:14px;}
+  .warn{background:#fff6e9;border:1px solid #ffe2b8;color:#9a6a1f;border-radius:12px;padding:11px 13px;
+    font-size:13px;margin-top:10px;}
+  footer{text-align:center;color:var(--muted);font-size:11.5px;padding:30px 18px 40px;}
+  .editmark{font-size:11px;color:var(--peach);font-weight:700;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="flag">🇰🇷</span>
+    <div class="eyebrow">SMBRAND COMPANY TRIP</div>
+    <h1>韓国社員旅行</h1>
+    <div class="sub">ソウル / Seoul</div>
+    <div class="dates">2026.7.21 <span style="opacity:.7">—</span> 7.24</div>
+  </header>
+
+  <nav class="chips">
+    <a href="#overview">🗺 概要</a>
+    <a href="#flight">✈️ フライト</a>
+    <a href="#member">👭 メンバー</a>
+    <a href="#hotel">🏨 ホテル</a>
+    <a href="#schedule">📅 日程</a>
+    <a href="#info">🇰🇷 現地情報</a>
+    <a href="#pack">🧳 持ち物</a>
+    <a href="#entry">🛂 入国</a>
+    <a href="#sos">🆘 緊急</a>
+  </nav>
+
+  <!-- 概要 -->
+  <section id="overview">
+    <div class="sec-h"><span class="ico">🗺</span><h2>旅の概要</h2></div>
+    <div class="grp zen">
+      <div class="gtop"><span class="gname">前半・酒組（先発）</span><span class="gcount">11名</span></div>
+      <div class="gdate">7/21(火) 〜 7/23(木) ・ 2泊3日</div>
+    </div>
+    <div class="grp toshi">
+      <div class="gtop"><span class="gname">通し</span><span class="gcount">2名</span></div>
+      <div class="gdate">7/21(火) 〜 7/24(金) ・ 3泊4日</div>
+      <div class="gnote">赤阪・井口（全行程参加）</div>
+    </div>
+    <div class="grp kou">
+      <div class="gtop"><span class="gname">後半・茶組（後発）</span><span class="gcount">9名</span></div>
+      <div class="gdate">7/22(水) 〜 7/24(金) ・ 2泊3日</div>
+    </div>
+    <p class="note">※ 区分は各自の航空券（eチケット）の日付に準拠。班分け表とズレていた方（櫻木さん→前半／矢代さん・高澤さん→後半）はチケットを正としています。菅原さん（参加未定）・CESAさんは別途調整。</p>
+  </section>
+
+  <!-- フライト -->
+  <section id="flight">
+    <div class="sec-h"><span class="ico">✈️</span><h2>フライト</h2></div>
+    <div class="card">
+      <div style="font-weight:800;margin-bottom:6px;">アシアナ航空（OZ）／ 成田(NRT) ⇄ 仁川(ICN)</div>
+      <div class="note" style="margin-top:0">所要 約2時間30分 ・ 日本と韓国の時差なし ・ 成田 第1ターミナル / 仁川 第2ターミナル</div>
+      <div class="flt">
+        <div class="leg"><div class="ap">成田 NRT</div><div class="tm">09:00</div><div class="no">第1ターミナル</div></div>
+        <div class="arrow">✈️<b>OZ107</b>→</div>
+        <div class="leg" style="text-align:right"><div class="ap">仁川 ICN</div><div class="tm">11:30</div><div class="no">第2ターミナル</div></div>
+      </div>
+      <div class="flt">
+        <div class="leg"><div class="ap">仁川 ICN</div><div class="tm">18:30</div><div class="no">第2ターミナル</div></div>
+        <div class="arrow">✈️<b>OZ108</b>→</div>
+        <div class="leg" style="text-align:right"><div class="ap">成田 NRT</div><div class="tm">21:00</div><div class="no">第1ターミナル</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-weight:800;margin-bottom:8px;">グループ別 発着</div>
+      <div class="flt"><div class="leg"><b>前半</b> <span class="no">酒組</span></div>
+        <div class="leg" style="text-align:right">往 7/21(火) OZ107<span class="tag ok">確認済</span><br><span class="no">復 7/23(木) OZ108</span><span class="tag ok">確認済</span></div></div>
+      <div class="flt"><div class="leg"><b>通し</b></div>
+        <div class="leg" style="text-align:right">往 7/21(火) OZ107<span class="tag ok">確認済</span><br><span class="no">復 7/24(金) OZ108</span><span class="tag ok">確認済</span></div></div>
+      <div class="flt"><div class="leg"><b>後半</b> <span class="no">茶組</span></div>
+        <div class="leg" style="text-align:right">往 7/22(水) OZ107<span class="tag ok">確認済</span><br><span class="no">復 7/24(金) OZ108</span><span class="tag ok">確認済</span></div></div>
+      <p class="note">全便アシアナ航空のデイリー便で確定（往路 OZ107 / 復路 OZ108）。座席・予約番号は各自のeチケットをご確認ください。</p>
+    </div>
+    <div class="warn">⏰ 集合時間・チェックインカウンター・座席は確定後に追記します。国際線は出発の<b>2時間前</b>集合が目安。</div>
+  </section>
+
+  <!-- メンバー -->
+  <section id="member">
+    <div class="sec-h"><span class="ico">👭</span><h2>メンバー・班分け</h2></div>
+    <div class="card">
+      <div class="mhead"><span class="dot" style="background:var(--coral)"></span>前半・酒組（7/21–23）<span class="no" style="margin-left:auto">11名</span></div>
+      <div class="mlist">
+        <span class="m">奥村 瞬<span class="r">Dr</span></span>
+        <span class="m">南波 佑有子<span class="r">Ns</span></span>
+        <span class="m">吉岡 ももか<span class="r">Ns</span></span>
+        <span class="m">加茂 恵美里<span class="r">Ns</span></span>
+        <span class="m">柳澤 真穂<span class="r">Ns</span></span>
+        <span class="m">飯嶋 佐友里<span class="r">Co</span></span>
+        <span class="m">多田 宏薫<span class="r">Co</span></span>
+        <span class="m">小森 萌名<span class="r">Co</span></span>
+        <span class="m">大庭 愛蘭<span class="r">Co</span></span>
+        <span class="m">櫻木 俊太郎<span class="r">Corp</span></span>
+        <span class="m">平野 沙也加</span>
+      </div>
+      <div class="mhead" style="margin-top:18px"><span class="dot" style="background:#7a6cff"></span>通し（7/21–24）<span class="no" style="margin-left:auto">2名</span></div>
+      <div class="mlist">
+        <span class="m">赤阪 早紀<span class="r">Corp</span></span>
+        <span class="m">井口 雄太<span class="r">Corp</span></span>
+      </div>
+      <div class="mhead" style="margin-top:18px"><span class="dot" style="background:#36b37e"></span>後半・茶組（7/22–24）<span class="no" style="margin-left:auto">9名</span></div>
+      <div class="mlist">
+        <span class="m">吉松 凜<span class="r">Dr</span></span>
+        <span class="m">吉松 英漣<span class="r">同行</span></span>
+        <span class="m">高澤 真美<span class="r">Ns</span></span>
+        <span class="m">下玉利 朱莉<span class="r">Ns</span></span>
+        <span class="m">吉田 里穂子<span class="r">Ns</span></span>
+        <span class="m">井上 琴美<span class="r">Co</span></span>
+        <span class="m">深水 まりん<span class="r">Co</span></span>
+        <span class="m">栗原 沙知<span class="r">Co</span></span>
+        <span class="m">矢代 梨々香<span class="r">Corp</span></span>
+      </div>
+      <p class="note">Dr=ドクター / Ns=ナース / Co=カウンセラー / Corp=コーポレート。菅原 望加さん（参加未定）・CESAさん（後から参加）は確定後に追記。</p>
+    </div>
+  </section>
+
+  <!-- ホテル -->
+  <section id="hotel">
+    <div class="sec-h"><span class="ico">🏨</span><h2>ホテル</h2></div>
+    <div class="card tbd">
+      <span class="pill">記入待ち</span>
+      <div>ホテル名・住所・電話・チェックイン/アウト時刻・部屋割りが決まったら教えてください。<br>地図リンク付きで載せます。</div>
+    </div>
+    <p class="note">部屋希望は取得済み（一人部屋希望：小森・奥村・栗原・菅原 ／ 他はツイン相部屋）。</p>
+  </section>
+
+  <!-- 日程 -->
+  <section id="schedule">
+    <div class="sec-h"><span class="ico">📅</span><h2>現地スケジュール</h2></div>
+    <div class="card tbd">
+      <span class="pill">記入待ち</span>
+      <div>「詳細な時間割あり」とのことなので、その<b>テキストを貼ってください</b>（Day1/Day2…の時間と行程）。<br>タイムライン形式で組み込みます。ファイル添付・転送は不要、本文に貼るだけでOKです。</div>
+    </div>
+  </section>
+
+  <!-- 現地情報 -->
+  <section id="info">
+    <div class="sec-h"><span class="ico">🇰🇷</span><h2>韓国の基礎情報</h2></div>
+    <div class="grid2">
+      <div class="ic"><div class="t">通貨</div><div class="v">韓国ウォン ₩</div><div class="s">1万₩≒¥1,100前後。カード広く可</div></div>
+      <div class="ic"><div class="t">時差</div><div class="v">なし</div><div class="s">日本と同じ時刻</div></div>
+      <div class="ic"><div class="t">電源</div><div class="v">220V / SEプラグ</div><div class="s">丸ピン2本。変換プラグ必須</div></div>
+      <div class="ic"><div class="t">7月の天気</div><div class="v">蒸し暑い ☔️</div><div class="s">最高30℃前後・梅雨〜真夏。傘必携</div></div>
+      <div class="ic"><div class="t">言語</div><div class="v">韓国語</div><div class="s">観光地は日英も通じやすい</div></div>
+      <div class="ic"><div class="t">チップ</div><div class="v">基本不要</div><div class="s">サービス料込みが一般的</div></div>
+    </div>
+    <p class="note">📶 通信：eSIM / ポケットWi-Fi / ローミングのいずれか事前準備を。冷房が強いので屋内用の羽織りものがあると◎</p>
+  </section>
+
+  <!-- 持ち物 -->
+  <section id="pack">
+    <div class="sec-h"><span class="ico">🧳</span><h2>持ち物チェックリスト</h2></div>
+    <div class="card" id="packlist">
+      <div class="chk-item"><input type="checkbox" id="p1"><label for="p1">パスポート（残存6ヶ月以上推奨）</label></div>
+      <div class="chk-item"><input type="checkbox" id="p2"><label for="p2">航空券（eチケット）控え</label></div>
+      <div class="chk-item"><input type="checkbox" id="p3"><label for="p3">現金（ウォン）＋クレジットカード</label></div>
+      <div class="chk-item"><input type="checkbox" id="p4"><label for="p4">スマホ・モバイルバッテリー</label></div>
+      <div class="chk-item"><input type="checkbox" id="p5"><label for="p5">変換プラグ（SEタイプ）・充電器</label></div>
+      <div class="chk-item"><input type="checkbox" id="p6"><label for="p6">eSIM / Wi-Fiルーター</label></div>
+      <div class="chk-item"><input type="checkbox" id="p7"><label for="p7">折りたたみ傘・羽織りもの</label></div>
+      <div class="chk-item"><input type="checkbox" id="p8"><label for="p8">常備薬・絆創膏・酔い止め</label></div>
+      <div class="chk-item"><input type="checkbox" id="p9"><label for="p9">日焼け止め・スキンケア</label></div>
+      <div class="chk-item"><input type="checkbox" id="p10"><label for="p10">エコバッグ（買い物用）</label></div>
+      <div class="chk-item"><input type="checkbox" id="p11"><label for="p11">海外旅行保険の控え</label></div>
+    </div>
+    <p class="note">チェックは端末に保存されます（同じスマホで開けば残ります）。</p>
+  </section>
+
+  <!-- 入国 -->
+  <section id="entry">
+    <div class="sec-h"><span class="ico">🛂</span><h2>入国・手続き</h2></div>
+    <div class="card">
+      <ul class="tidy">
+        <li><b>ビザ</b>：観光目的・短期滞在は不要（日本国籍）。</li>
+        <li><b>K-ETA（電子渡航認証）</b>：日本国籍は当面<b>免除措置</b>が続いていますが、<span style="color:var(--coral);font-weight:700">2026年7月時点の最新適用状況は必ず確認</span>を。</li>
+        <li><b>e-Arrival Card / Q-CODE</b>：入国カード・検疫の事前オンライン登録をしておくと当日スムーズ。</li>
+        <li><b>パスポート残存期間</b>：滞在日数＋αを確認。</li>
+      </ul>
+      <div class="warn">⚠️ 入国制度は変更されることがあります。出発前に外務省・韓国観光公社の最新情報で最終確認してください。手続きは幹事（コーポレート）側で取りまとめ予定。</div>
+    </div>
+  </section>
+
+  <!-- 緊急 -->
+  <section id="sos">
+    <div class="sec-h"><span class="ico">🆘</span><h2>緊急連絡先</h2></div>
+    <div class="card">
+      <div class="ct"><div class="l"><div class="n">警察</div><div class="d">韓国 緊急</div></div><a href="tel:112">112</a></div>
+      <div class="ct"><div class="l"><div class="n">消防・救急</div><div class="d">韓国 緊急</div></div><a href="tel:119">119</a></div>
+      <div class="ct"><div class="l"><div class="n">観光通訳案内</div><div class="d">24h・日本語対応</div></div><a href="tel:1330">1330</a></div>
+      <div class="ct"><div class="l"><div class="n">在大韓民国 日本国大使館</div><div class="d">ソウル</div></div><a href="tel:+82-2-2170-5200">+82-2-2170-5200</a></div>
+    </div>
+    <div class="card tbd"><span class="pill">記入待ち</span><div>添乗員 / 現地ガイド / 幹事の緊急連絡先を追記します。</div></div>
+  </section>
+
+  <footer>
+    韓国社員旅行 2026 旅のしおり ・ 社内限定<br>
+    <span class="editmark">DRAFT</span> — ホテル・詳細日程・集合時間は順次更新します
+  </footer>
+
+</div>
+<script>
+  // smooth scroll for nav chips (account for sticky nav height)
+  document.querySelectorAll('nav.chips a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var el=document.querySelector(this.getAttribute('href'));
+      if(el){var y=el.getBoundingClientRect().top+window.scrollY-58;window.scrollTo({top:y,behavior:'smooth'});}
+    });
+  });
+  // persist checklist
+  document.querySelectorAll('#packlist input').forEach(function(cb){
+    var k='ktrip_'+cb.id;
+    if(localStorage.getItem(k)==='1'){cb.checked=true;cb.closest('.chk-item').classList.add('done');}
+    cb.addEventListener('change',function(){
+      localStorage.setItem(k,cb.checked?'1':'0');
+      cb.closest('.chk-item').classList.toggle('done',cb.checked);
+    });
+  });
+</script>
+</body>
+</html>
